@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+        <arg name="paused" value="false"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+        <arg name="world_name" value="$(find aws_robomaker_hospital_world)/worlds/hospital.world" />
+    </include>
+
+    <include file="$(find wheelchair)/launch/wheelchair_base.launch" />
+</launch>
