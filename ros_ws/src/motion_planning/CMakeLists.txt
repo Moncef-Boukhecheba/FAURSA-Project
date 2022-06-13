@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(wheelchair)
+project(motion_planning)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -7,11 +7,8 @@ project(wheelchair)
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   roscpp
+  rospy
   rviz
-  tf
-  urdf
-  xacro
-  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -48,10 +45,9 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-add_message_files(
-    FILES
-    FloatArray.msg
-)
+## add_message_files(
+##    FILES
+##)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -118,24 +114,24 @@ include_directories(
 )
 
 ## Declare a C++ library
-# add_library(wheelchair
-#   src/${PROJECT_NAME}/wheelchair.cpp
+# add_library(motion_planning
+#   src/${PROJECT_NAME}/motion_planning.cpp
 # )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(wheelchair ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(motion_planning ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-# add_executable(wheelchair_node src/wheelchair_node.cpp)
+# add_executable(motion_planning_node src/motion_planning_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(wheelchair_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(motion_planning_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(wheelchair_node
+# target_link_libraries(motion_planning_node
 #   ${catkin_LIBRARIES}
 # )
 
@@ -155,7 +151,7 @@ install(PROGRAMS
 )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS wheelchair wheelchair_node
+# install(TARGETS motion_planning motion_planning_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -180,7 +176,7 @@ install(PROGRAMS
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_wheelchair.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_motion_planning.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
