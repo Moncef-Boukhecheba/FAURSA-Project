@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<launch>
+	<!-- Load model with xacro -->
+	<arg name="model" default="$(find wheelchair)/urdf/wheelchair.urdf.xacro" />
+	<param command="xacro $(arg model)" name="robot_description"/>
+
+	<!-- Publish the robot description -->
+  	<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" respawn="false" output="screen" />
+
+	<!-- Spawn robot in gazebo -->
+    <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
+          args="-param robot_description
+                -urdf
+				-y 0
+				-z 0
+				-x 0
+                -model robot_description"
+          respawn="false" output="screen" />
+
+	<param name="use_gui" value="false"/>
+
+
+	<!-- Launch Saved map -->
+	<arg name="scan_topic" default="laser_scan" />
+	<arg name="base_frame" default="base_link" />
+	<arg name="odom_frame" default="odom" />
+	<node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    	<param name="base_frame" value="$(arg base_frame)"/>
+    	<param name="odom_frame" value="$(arg odom_frame)"/>
+    	<param name="xmin" value="-20.0"/>
+    	<param name="ymin" value="-20.0"/>
+    	<param name="xmax" value="20.0"/>
+    	<param name="ymax" value="20.0"/>
+    	<remap from="scan" to="$(arg scan_topic)"/>
+  </node>
+
+	<!-- Launch Rviz -->
+	<!-- <arg name="rvizconfig" default="$(find wheelchair)/config/wheelchair_urdf.rviz" /> -->
+	<!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" /> -->
+
+</launch>
