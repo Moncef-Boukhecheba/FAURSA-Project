@@ -74,9 +74,7 @@
     <link name="${suffix}_caster_wheel_link" >
       <xacro:caster_wheel_inertia />
       <visual>
-        <!-- <origin xyz="0 0 0" rpy="${PI/2} 0 0" /> -->
         <geometry>
-          <!-- <cylinder length="0.038" radius="${caster_wheel_radius}" /> -->
           <mesh filename="package://wheelchair/meshes/caster_wheel.dae" />
         </geometry>
       </visual>
@@ -84,7 +82,6 @@
         <origin xyz="0 0 0" rpy="${PI/2} 0 0" />
         <geometry>
           <cylinder length="0.038" radius="${caster_wheel_radius}" />
-          <!-- <mesh filename="package://wheelchair/meshes/caster_wheel.dae" /> -->
          </geometry>
       </collision>
     </link>
@@ -97,7 +94,6 @@
   <xacro:macro name="caster_hub" params="suffix parent *origin reflect" >
     <joint name="${parent}_${suffix}_caster_hub_joint" type="continuous" >
       <axis xyz="0 0 1" />
-      <!-- <limit lower="${PI}" upper="${-1*PI}" effort="0.0" velocity="0.0" /> -->
       <dynamics damping="0.0" friction="0.0" />
       <xacro:insert_block name="origin" />
       <parent link="${parent}_link"/>
@@ -120,7 +116,6 @@
     </link>
 
     <xacro:caster_hub_gazebo suffix="${suffix}" />
-    <!-- <xacro:caster_hub_transmission parent="${parent}" suffix="${suffix}" /> -->
   </xacro:macro>
 
 
