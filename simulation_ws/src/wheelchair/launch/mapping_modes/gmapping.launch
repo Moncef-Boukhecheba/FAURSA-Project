@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+	<!-- Launch Gmapping -->
+	<arg name="scan_topic" default="laser_scan" />
+	<arg name="base_frame" default="base_link" />
+	<arg name="odom_frame" default="odom" />
+	<node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    	<param name="base_frame" value="$(arg base_frame)"/>
+    	<param name="odom_frame" value="$(arg odom_frame)"/>
+    	<param name="xmin" value="-20.0"/>
+    	<param name="ymin" value="-20.0"/>
+    	<param name="xmax" value="20.0"/>
+    	<param name="ymax" value="20.0"/>
+    	<remap from="scan" to="$(arg scan_topic)"/>
+  	</node>
+</launch>

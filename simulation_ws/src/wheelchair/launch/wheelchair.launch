@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 
-<launch>
+<launch>    
+    <!-- Launch gazebo and start simulation -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch" >
-        <arg name="paused" value="false"/>
+        <arg name="paused" value="true"/>
         <arg name="gui" value="true"/>
         <arg name="headless" value="false"/>
         <arg name="debug" value="false"/>
@@ -10,5 +11,24 @@
         <arg name="world_name" value="$(find wheelchair)/worlds/simple_maze.world" />
     </include>
 
-    <include file="$(find wheelchair)/launch/wheelchair_base_saved_map.launch" />
+    <!-- Handle model creation and spawning in Gazebo -->
+    <include file="$(find wheelchair)/launch/wheelchair_model.launch"/>
+
+    <!-- Handle mapping modes -->
+    <!-- =================================== -->
+    <arg name="mapping_mode" value="jojo"/>
+
+    <!-- Case 1 - Gmapping -->
+    <include file="$(find wheelchair)/launch/mapping_modes/gmapping.launch" if="$(eval arg('mapping_mode') == 'gmapping')"/>/>
+
+    <!-- Case 2 - Lama -->
+    <include file="$(find wheelchair)/launch/mapping_modes/lama_mapping.launch" if="$(eval arg('mapping_mode') == 'lama')"/>
+
+    <!-- Case 3 - No mapping (saved map) -->
+    <include file="$(find wheelchair)/launch/mapping_modes/saved_map.launch" if="$(eval arg('mapping_mode') == 'saved')"/>
+    <!-- =================================== -->
+
+    <!-- Launch Rviz -->
+    <arg name="rvizconfig" default="$(find wheelchair)/config/wheelchair_map.rviz" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 </launch>

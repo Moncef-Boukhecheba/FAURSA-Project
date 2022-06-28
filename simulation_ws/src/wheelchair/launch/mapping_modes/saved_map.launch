@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<launch>
+	<!-- Launch Saved map -->
+	<arg name="mapfile" default="$(find wheelchair)/map/simple_maze.yaml" />
+	<node name="map_server" pkg="map_server" type="map_server" args="$(arg mapfile)" required="true">
+		<param name="frame_id" value="map"/>
+	</node>
+
+	<!-- Launch Adaptive Monte-Carlo Localization node -->
+	<node pkg="amcl" type="amcl" name="amcl" output="screen" args="scan:=laser_scan">
+  		<param name="laser_model_type" value="likelihood_field"/>
+  		<param name="scan" value="laser_scan"/>
+  		<param name="odom_frame_id" value="odom"/>
+  		<param name="base_frame_id" value="base_link"/>
+  		<param name="global_frame_id" value="map"/>
+  		<param name="tf_broadcast" value="true"/>
+ 	</node>
+</launch>

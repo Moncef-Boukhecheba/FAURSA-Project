@@ -27,7 +27,7 @@
 
   <!-- <wheelchair_kinect_single parent="base_link" roll="0.025" pitch="0.25" yaw="0.0" x="${kinectx}" y="${kinecty}" z="${kinectz}" /> -->
 
-  <xacro:wheelchair_hokuyo parent="base_link" roll="${PI}" pitch="0.0" yaw=" 0.0" x="0.25" y="0.0" z="-0.1" />
+  <xacro:wheelchair_hokuyo parent="base_link" roll="${PI}" pitch="0" yaw="0.0" x="0.25" y="0.0" z="-0.1" />
 
   <!-- Macro for front wheel only -->
   <xacro:macro name="front_wheel" params="suffix parent reflect" >

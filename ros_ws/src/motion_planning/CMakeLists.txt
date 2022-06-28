@@ -138,6 +138,9 @@ include_directories(
 add_executable(simple_navigation src/simple_navigation.cpp)
 target_link_libraries(simple_navigation ${catkin_LIBRARIES})
 
+add_executable(sub_pub src/sub_pub.cpp)
+target_link_libraries(sub_pub ${catkin_LIBRARIES})
+
 #############
 ## Install ##
 #############
