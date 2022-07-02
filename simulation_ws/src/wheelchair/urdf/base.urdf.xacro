@@ -6,11 +6,8 @@
        xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find wheelchair)/urdf/wheelchair.gazebo.xacro" />
-  <xacro:include filename="$(find wheelchair)/urdf/wheelchair.transmission.xacro" />
   <xacro:include filename="$(find wheelchair)/urdf/wheelchair.constants.xacro" />
-  <!--<xacro:include filename="$(find wheelchair)/urdf/wheelchair.kinect.xacro" /> -->
   <xacro:include filename="$(find wheelchair)/urdf/wheelchair.hokuyo.xacro" />
-
   <xacro:property name="PI" value="3.1415926535897931" />
 
   <xacro:property name="front_wheel_radius" value="0.17" />
@@ -24,9 +21,7 @@
   <xacro:property name="kinectx" value="-0.72" />
   <xacro:property name="kinecty" value="0.0" />
   <xacro:property name="kinectz" value="1.41" />
-
-  <!-- <wheelchair_kinect_single parent="base_link" roll="0.025" pitch="0.25" yaw="0.0" x="${kinectx}" y="${kinecty}" z="${kinectz}" /> -->
-
+  
   <xacro:wheelchair_hokuyo parent="base_link" roll="${PI}" pitch="0" yaw="0.0" x="0.25" y="0.0" z="-0.1" />
 
   <!-- Macro for front wheel only -->

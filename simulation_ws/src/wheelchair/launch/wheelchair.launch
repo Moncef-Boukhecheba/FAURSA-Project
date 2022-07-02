@@ -16,7 +16,7 @@
 
     <!-- Handle mapping modes -->
     <!-- =================================== -->
-    <arg name="mapping_mode" value="jojo"/>
+    <arg name="mapping_mode" value="gmapping"/>
 
     <!-- Case 1 - Gmapping -->
     <include file="$(find wheelchair)/launch/mapping_modes/gmapping.launch" if="$(eval arg('mapping_mode') == 'gmapping')"/>/>
