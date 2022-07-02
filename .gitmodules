@@ -1,0 +1,4 @@
+[submodule "aws-robomaker-hospital-world"]
+	path = simulation_ws/src/aws-robomaker-hospital-world
+	url = https://github.com/aws-robotics/aws-robomaker-hospital-world
+
