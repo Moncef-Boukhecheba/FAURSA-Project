@@ -1,4 +1,10 @@
 [submodule "aws-robomaker-hospital-world"]
 	path = simulation_ws/src/aws-robomaker-hospital-world
 	url = https://github.com/aws-robotics/aws-robomaker-hospital-world
+[submodule "iris_lama_ros"]
+	path = simulation_ws/src/iris_lama_ros
+	url = https://github.com/iris-ua/iris_lama_ros
+[submodule "iris_lama"]
+	path = simulation_ws/src/iris_lama
+	url = https://github.com/iris-ua/iris_lama
 
