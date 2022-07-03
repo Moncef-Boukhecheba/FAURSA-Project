@@ -1,18 +1,7 @@
 #!/bin/bash
 
-root_directory=$(pwd)
+# Install dependencies
+sudo apt install ros-noetic-map-server ros-noetic-amcl ros-noetic-gmapping
 
-# Build Simulation workspace
-cd $root_directory/simulation_ws 
-rm -rf devel
-catkin_make
-source devel/setup.bash
-
-# Build ROS workspace
-cd $root_directory/ros_ws 
-rm -rf devel
-catkin_make
-source devel/setup.bash
-
-cd $root_directory
-
+# Build workspaces and source setup files 
+source make_projects.sh
