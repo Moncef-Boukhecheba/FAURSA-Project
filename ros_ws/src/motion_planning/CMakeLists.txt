@@ -141,6 +141,9 @@ target_link_libraries(simple_navigation ${catkin_LIBRARIES})
 add_executable(sub_pub src/sub_pub.cpp)
 target_link_libraries(sub_pub ${catkin_LIBRARIES})
 
+add_executable(trajectory_gen src/trajectory_gen.cpp)
+target_link_libraries(trajectory_gen ${catkin_LIBRARIES})
+
 #############
 ## Install ##
 #############

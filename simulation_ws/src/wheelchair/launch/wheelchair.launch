@@ -3,7 +3,7 @@
 <launch>    
     <!-- Launch gazebo and start simulation -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch" >
-        <arg name="paused" value="true"/>
+        <arg name="paused" value="false"/>
         <arg name="gui" value="true"/>
         <arg name="headless" value="false"/>
         <arg name="debug" value="false"/>
@@ -16,10 +16,10 @@
 
     <!-- Handle mapping modes -->
     <!-- =================================== -->
-    <arg name="mapping_mode" value="lama"/>
+    <arg name="mapping_mode" value="saved"/>
 
     <!-- Case 1 - Gmapping -->
-    <include file="$(find wheelchair)/launch/mapping_modes/gmapping.launch" if="$(eval arg('mapping_mode') == 'gmapping')"/>/>
+    <include file="$(find wheelchair)/launch/mapping_modes/gmapping.launch" if="$(eval arg('mapping_mode') == 'gmapping')"/>
 
     <!-- Case 2 - Lama -->
     <include file="$(find wheelchair)/launch/mapping_modes/lama_mapping.launch" if="$(eval arg('mapping_mode') == 'lama')"/>
