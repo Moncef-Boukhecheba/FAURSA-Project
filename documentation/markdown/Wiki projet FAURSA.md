@@ -71,15 +71,15 @@ Les mondes utilisés dans ce projet sont les suivants :
 
 - **HEXAGON WORLD (monde par défaut, tapez hexagon) :**
 
-![world_hexagon.png](Wiki%20projet%20FAURSA%20874381feee7c4fd190e445a1b0ea768d/world_hexagon.png)
+![world_hexagon.png](Wiki%20projet%20FAURSA/world_hexagon.png)
 
 - **SIMPLE HOUSE (tapez simple_house) :**
 
-![world_house.png](Wiki%20projet%20FAURSA%20874381feee7c4fd190e445a1b0ea768d/world_house.png)
+![world_house.png](Wiki%20projet%20FAURSA/world_house.png)
 
 - **AWS ROBOMAKER HOSPITAL WORLD (tapez hospital) :**
 
-![hospital_world.png](Wiki%20projet%20FAURSA%20874381feee7c4fd190e445a1b0ea768d/hospital_world.png)
+![hospital_world.png](Wiki%20projet%20FAURSA/hospital_world.png)
 
 La chaise est instanciée dans des positions différentes selon le monde, définies dans le fichier **launch/wheelchair.launch,** mais il est possible de définir une position initiale différente avec le paramètre **pos_x** et **pos_y** :
 
@@ -117,7 +117,7 @@ rosrun map_server map_saver -f [NOM_DU_MONDE]
 Une fois votre environnement de simulation créé, pour tester les méthodes de navigation implémentées, tapez cette commande :
 
 ```bash
-rosrun motion_planning [nom_du_noeud]
+rosrun motion_planning [NOM_DU_NOEUD]
 ```
 
 Deux noeuds principaux sont disponibles : 
@@ -126,7 +126,7 @@ Deux noeuds principaux sont disponibles :
 - **optimisation_local :** utilise un algorithme d’optimisation pour la navigation, pour spécifier l’algorithme de navigation, tapez la commande :
 
 ```bash
-rosrun motion_planning optimisation_local _algorithm:=[nom_algorithme]
+rosrun motion_planning optimisation_local _algorithm:=[NOM_ALGORITHME]
 ```
 
 Les algorithmes disponibles sont : 
