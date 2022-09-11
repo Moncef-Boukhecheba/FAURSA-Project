@@ -48,10 +48,8 @@ Après le téléchargement du projet, lancez le fichier `first_setup.sh` qui se 
 source first_setup.sh
 ```
 
-<aside>
 💡 **Note :** Si vous ne souhaitez pas installer les dépendances (à savoir `ros-noetic-map-server ros-noetic-amcl ros-noetic-gmapping ros-noetic-hector-mapping`) vous pouvez lancer le fichier `make_projects.sh` et choisir d’installer les dépendances une par une.
 
-</aside>
 
 A chaque fois que vous ouvrez un nouveau terminal, lancez la commande suivante pour que les packages et les noeuds créés dans le projet soient visibles par ROS :
 
@@ -107,10 +105,7 @@ Si vous utilisez un des algorithmes SLAM et une fois la carte générée si vous
 rosrun map_server map_saver -f [NOM_DU_MONDE]
 ```
 
-<aside>
 💡 **Note :** Il est **impératif** d’utiliser le même nom pour le monde et le fichier de la carte enregistré, sinon vous aurez une erreur en lançant le fichier **wheelchair.launch**.
-
-</aside>
 
 ## Lancement et utilisation des techniques de navigation :
 
