@@ -23,6 +23,7 @@ Cette commande installe le projet sans les sous-modules (submodules), les sous-m
 
 - **aws-robomaker-hospital-world :** Une collection de mondes et de modèles 3D autour du thème de l’hôpital, créés pour être utilisés dans une simulation sous Gazebo.
 - **LaMa (ne fonctionne pas pour l’instant) :** Ce sous-module est un package utilisé pour la création de mapping et / ou localisation (SLAM). Par défaut le projet se lance avec une carte pré-enregistrée d’un monde simple donc aucun mapping n’est nécessaire. D’autres modules sont d’ailleurs utilisés pour SLAM notamment gmapping et hector_mapping donc LaMa n’est qu’un plus.
+- **gazebo_ros_2Dmap_plugin (necessite la stack navigation)** : Ce sous-module permet de construire des cartes du monde à partir de gazebo.
 
 Si vous voulez cloner **un seul sous-module,** exécutez cette commande dans la racine du projet : 
 

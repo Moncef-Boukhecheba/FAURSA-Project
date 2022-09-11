@@ -67,6 +67,26 @@ rosrun map_server map_saver -f [NOM_DU_MONDE]
 
 💡 **Note :** Il est **impératif** d’utiliser le même nom pour le monde et le fichier de la carte enregistré, sinon vous aurez une erreur en lançant le fichier **wheelchair.launch**.
 
+En utilisant le module **gazebo_ros_2Dmap_plugin**, il est possible de créer les cartes juste avec le monde Gazebo : son utilisation est simple, il suffit de lancer la commande : 
+
+```bash
+rosservice call /gazebo_2Dmap_plugin/generate_map
+```
+Gazebo doit être lancé, et le monde lancé doit avoir la définition du plugin gazebo_2D_map dans son fichier **.world** comme ceci : 
+
+```XML
+<plugin name='gazebo_occupancy_map' filename='libgazebo_2Dmap_plugin.so'>
+        <map_resolution>0.1</map_resolution> 
+        <map_height>0.3</map_height>
+        <map_size_x>200</map_size_x>
+        <map_size_y>200</map_size_y>
+        <init_robot_x>0</init_robot_x> <!-- Indiquer la vraie position du robot -->
+        <init_robot_y>0</init_robot_y>
+</plugin>
+```
+
+Plus d'informations sur la page github : https://github.com/marinaKollmitz/gazebo_ros_2Dmap_plugin
+
 ## Lancement et utilisation des techniques de navigation :
 
 Une fois votre environnement de simulation créé, pour tester les méthodes de navigation implémentées, tapez cette commande :
