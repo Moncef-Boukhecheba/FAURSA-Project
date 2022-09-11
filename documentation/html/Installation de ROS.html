@@ -1,0 +1,680 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Installation de ROS</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0105ac31-cb9c-425e-8968-b1b4e6449a9d" class="page sans"><header><img class="page-cover-image" src="https://www.swri.org/sites/default/files/styles/client_services_banner/public/client-services-images/ROS_web%20hero.jpg?itok=XcwIHdKz&amp;c=7006ba62a8d3a81e771a663684b68e9e" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🤖</span></div><h1 class="page-title">Installation de ROS</h1></header><div class="page-body"><h2 id="b1f789b8-333c-4c1a-b0fa-0977a32b0600" class="">Préambule :</h2><p id="b9df554d-8f43-4c3e-a988-07d7d6cee69a" class="">Ce Wiki contient les étapes d’installation de ROS et de Gazebo.</p><p id="ae0ca0ba-c0b5-4b86-9fb1-51c08d07cdfa" class="">Le système d&#x27;exploitation utilisé ici est Linux Mint 20.3 (Una), c&#x27;est simplement une distribution qui repose sur Ubuntu 20.04 (Focal). Si vous disposez d&#x27;un autre système d&#x27;exploitation, je mettrai les liens vers les pages d&#x27;installation de chaque outil pour que vous puissiez choisir le tutoriel correspondant.</p><h2 id="518686e7-a9f7-440c-8e82-ff08a8db741d" class="">Installation et configuration de ROS :</h2><h3 id="9cf5b6c5-2820-4110-aae3-97b23e515c9c" class="">Liens d’installation</h3><p id="5c725e1a-b6a1-45dc-b0b6-a6a87235f389" class="">Ce tutoriel concerne l’installation de ROS 1 sur lequel le projet a été réalisé (il est recommandé de migrer vers ROS 2 dans le futur, vu que cette version va bientôt être la plus adoptée). La distribution de ROS 1 utilisée pour <em>Ubuntu focal</em> est la distribution <em>Noetic </em>dont le tutoriel d’installation est disponible ici : </p><figure id="f3ddd0ee-8d4e-4b20-8ea1-fd0a3dbb88ab"><a href="http://wiki.ros.org/noetic/Installation/Ubuntu" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Wiki</div><div class="bookmark-description">The ROS build farm builds Debian packages for several Ubuntu platforms, listed below. These packages are ready to use so you don&#x27;t have to build from source. You can check the status of individual packages here. Note that there are also packages available from Ubuntu upstream. Please see UpstreamPackages to understand the difference.</div></div><div class="bookmark-href"><img src="http://wiki.ros.org/custom/favicon.ico" class="icon bookmark-icon"/>http://wiki.ros.org/noetic/Installation/Ubuntu</div></div><img src="http://wiki.ros.org/custom/images/menu_download.png" class="bookmark-image"/></a></figure><p id="9748bf4f-a075-443b-9a63-546edbf87283" class="">Si vous avez un autre système d’exploitation ou que vous voulez installer une nouvelle version de ROS 1, veuillez suivre un des tutoriels trouvés dans cette page : </p><figure id="a0df1096-cbee-4549-9ec7-89d3286dcb0e"><a href="http://wiki.ros.org/ROS/Installation" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Wiki</div><div class="bookmark-description">There is more than one ROS distribution supported at a time. Some are older releases with long term support, making them more stable, while others are newer with shorter support life times, but with binaries for more recent platforms and more recent versions of the ROS packages that make them up.</div></div><div class="bookmark-href"><img src="http://wiki.ros.org/custom/favicon.ico" class="icon bookmark-icon"/>http://wiki.ros.org/ROS/Installation</div></div><img src="https://raw.githubusercontent.com/ros-infrastructure/artwork/master/distributions/melodic_with_bg.png" class="bookmark-image"/></a></figure><h3 id="2ed9ea44-8179-4b8e-afb3-ac5b8996bdb2" class="">Installation</h3><p id="24b145b0-720d-44cd-b697-2a3bfd862930" class="">Retranscrites du premier tutoriel, voici les commandes (en condensé) à exécuter pour que votre système d’exploitation puisse recevoir les paquets à partir de ROS :</p><pre id="4ae2f171-088f-4bb5-bd8d-b7bad5ee282f" class="code"><code>sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;
+sudo apt install curl
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+sudo apt update</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="e8add0f2-b36b-4929-a09c-c6b3b2d6c5aa"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Note : </strong>Si vous utilisez Linux Mint (ou autre distribution par dessus Ubuntu), remplacez la commande <code>$(lsb_release -sc)</code> par le nom de code de la distribution Ubuntu sur lequel votre système d&#x27;exploitation est basé (ex : pour Linux Mint <strong>Una</strong>, le nom de code de la distribution d’Ubuntu correspondante est <strong>focal</strong>) </div></figure><p id="3fb60a00-bffe-429a-8ffc-8f9fac912a9e" class="">La prochaine étape est d’installer ROS, vous avez le choix entre 3 versions : </p><ul id="1f7b3f07-6aa5-407a-8dd1-98648f931702" class="bulleted-list"><li style="list-style-type:disc"><strong>La version Desktop Full (ROS + Outils (rviz, rqt, etc.) + Gazebo etc.)</strong></li></ul><ul id="baf43fc4-2992-45ca-9cc9-9373269142c6" class="bulleted-list"><li style="list-style-type:disc"><strong>La version Desktop (ROS + Outils)</strong></li></ul><ul id="26045161-a43a-420d-8062-8fe0af523eda" class="bulleted-list"><li style="list-style-type:disc"><strong>La version Basique (ROS)</strong></li></ul><p id="b563d251-50f3-489e-a5a6-cdc02f4c5f49" class="">Nous allons installer la version Desktop Full avec cette commande :</p><pre id="ad5ce81f-07b5-4f3b-9415-48b3f8f8cd51" class="code"><code>sudo apt install ros-noetic-desktop-full</code></pre><p id="f3ad01f4-d519-4d4e-921b-371d3e6596c6" class="">Détendez-vous et laisser ROS s’installer.</p><h3 id="bdef0a1d-da8d-4425-90b8-675da15bce09" class="">Configuration de l’environnement ROS</h3><p id="882f30ee-e0f7-4342-b80f-45c5bf5bd280" class="">Une fois ROS installé, vous devriez pouvoir utiliser les commandes de ROS (comme <code>roscore</code> ou <code>rosrun</code>) dans n’importe quel terminal. </p><p id="dbb0c804-cfb4-4c2d-93ea-8a89b87bcafa" class="">Normalement, pour faire en sorte que votre terminal puisse voir l’environnement ROS, vous devez exécuter la commande suivante <strong>à chaque fois que vous lancez un nouveau terminal :</strong></p><pre id="b3aa1916-64f1-4c4a-9ea8-79fdb976cd53" class="code"><code>source /opt/ros/noetic/setup.bash</code></pre><p id="27383904-830d-4f58-adee-2d723f19c4ac" class="">Les commandes ne sont pas automatiquement visibles dès l’installation pour une raison : comme ça vous pourriez avoir plusieurs versions de ROS en même temps dans un système d’exploitation sans risques de conflits (vous pouvez même avoir deux versions de ROS différentes dans deux terminaux différents). </p><p id="e6f64b6e-1519-4e8a-9a78-2b5bb41ec601" class="">Si vous voulez que la commande précédente se lance automatiquement à chaque lancement d’un nouveau terminal, ajoutez simplement la commande en bas du fichier <code>~/.bashrc</code>, ou plus simplement lancez ces commandes qui accomplissent la même chose : </p><pre id="f3475eca-b9b1-4d13-937e-9ae353f1bd20" class="code"><code>echo &quot;source /opt/ros/noetic/setup.bash&quot; &gt;&gt; ~/.bashrc
+source ~/.bashrc</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1867729f-6ed1-45b0-826b-7bc864c614a1"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Note : </strong>Rappelez-vous de la notion de “sourcing”, car elle est très importante dans l’écosystème ROS. Si vous n’arrivez pas à trouver un package, un noeud ou tout autre élément de ROS dans votre terminal c’est très probablement que vous n’avez pas sourcé un fichier qu’il faut sourcer.</div></figure><h3 id="be0b09a8-8335-4fe0-88e6-c2371eabdc99" class="">Installation d’outils importants </h3><p id="7b25c7aa-73b2-4b0b-99dc-0ff060295ed4" class="">D’après le lien du tutoriel, il est important d’installer ces outils pour le bon fonctionnement de ROS :</p><pre id="d3f3db2d-462e-4ade-8e91-04fa64eefd85" class="code"><code># Install dependencies
+sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+
+# Initialize Rosdep
+sudo rosdep init
+rosdep update</code></pre><h2 id="90f7f891-d5de-4a23-a461-6ecda4cdb28c" class="">Gazebo :</h2><h3 id="4dd25e38-c7ba-4e93-a68a-6e79d2da8370" class="">Installation</h3><p id="6bb2bc77-cd1c-4e0f-a67b-1752efe676e8" class="">Si vous avez installé la version Desktop-full de ROS, vous devriez avoir gazebo à sa dernière version, sinon vous pouvez installer gazebo à l’aide de cette commande :</p><p id="1300bf87-5119-4e29-835f-d19a290892f0" class="">
+</p><p id="905964ea-9ce3-4c32-824b-c8e542877115" class="">Puis installez ces dépendances : </p><h3 id="a30a86ed-7354-41aa-8dbe-9e8d07f38be4" class="">Configuration de l’environnement</h3><p id="b2fcd39b-f0ab-4e81-b358-3e29468f2ff6" class="">Ajoutez cette ligne à votre <code>~/.bashrc</code>:</p><pre id="85b43be0-1bb6-457e-8020-456087883094" class="code"><code>source /usr/share/gazebo/setup.bash</code></pre><p id="d82cc988-c52e-4626-b2f4-f61c5a39fb66" class="">
+</p></div></article></body></html>

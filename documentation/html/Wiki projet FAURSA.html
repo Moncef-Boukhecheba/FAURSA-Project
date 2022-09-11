@@ -1,0 +1,674 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Wiki projet FAURSA</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="bf9e1063-d8d2-465b-87a6-9141c96baeb7" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">👨‍🦼</span></div><h1 class="page-title">Wiki projet FAURSA</h1></header><div class="page-body"><h2 id="7020fe62-78af-4e6b-8f13-7de8df22a65d" class="">Téléchargement du projet</h2><p id="12f692fc-6451-4305-92e7-dbc801b77545" class="">Vérifiez que vous disposez de git dans votre système d’exploitation en exécutant la commande : </p><pre id="b162f190-a7c4-43d5-bebd-12be8b65788b" class="code"><code>git</code></pre><p id="2984ecf5-952f-488e-b6cd-75999b217760" class="">Si le terminal vous dit que la commande n’a pas été retrouvée, lancez la commande suivante pour l’installer : </p><pre id="da5527a5-34ac-4ac9-a946-81b7aba772fb" class="code"><code>sudo apt install git</code></pre><p id="afd8d794-2ee3-49c1-8a17-8bdc0030f33e" class="">Une fois la commande installée, déplacez-vous vers le dossier de votre choix (le dossier où sera placé le projet) et lancez la commande : </p><pre id="fa01b48e-8a10-4706-9186-ed0d8e1e2442" class="code"><code>git clone https://github.com/Moncef-Boukhecheba/FAURSA-Project</code></pre><p id="0624964b-c1b4-4e6e-a499-22f110c6104b" class="">Cette commande installe le projet sans les sous-modules (submodules), les sous-modules sont optionnels et sont les suivants : </p><ul id="381daa05-4afe-47d3-bdef-ffc614b3c7d8" class="bulleted-list"><li style="list-style-type:disc"><strong>aws-robomaker-hospital-world : </strong>Une collection de mondes et de modèles 3D autour du thème de l’hôpital, créés pour être utilisés dans une simulation sous Gazebo.</li></ul><ul id="23fd28b8-a299-4677-9b39-2e1e3e6dac0d" class="bulleted-list"><li style="list-style-type:disc"><strong>LaMa (ne fonctionne pas pour l’instant) : </strong>Ce sous-module est un package utilisé pour la création de mapping et / ou localisation (SLAM). Par défaut le projet se lance avec une carte pré-enregistrée d’un monde simple donc aucun mapping n’est nécessaire. D’autres modules sont d’ailleurs utilisés pour SLAM notamment gmapping et hector_mapping donc LaMa n’est qu’un plus.</li></ul><p id="922411c1-ec4d-4161-b058-e575af3e3157" class="">Si vous voulez cloner <strong>un seul sous-module, </strong>exécutez cette commande dans la racine du projet : </p><pre id="3f5397ef-c865-43ca-a34a-8071c25d96e5" class="code"><code>git submodule update --init -- &lt;chemin_vers_le_dossier_du_sous_module&gt;
+
+# Exemple 
+git submodule update --init -- simulation_ws/src/iris_lama_ros</code></pre><p id="5c18cd0d-498b-48fd-8e8d-19d22ab729f1" class="">Sinon, pour télécharger le projet avec tous ses sous-modules, lancez la commande : </p><pre id="aac206a2-3cec-45a2-bfbf-99a4b9a28a5d" class="code"><code>git clone https://github.com/Moncef-Boukhecheba/FAURSA-Project --recurse-submodules</code></pre><h2 id="f03eb877-f3ff-4b02-8b0d-0cdcb45eb437" class="">Lancement du projet</h2><p id="d87b9e79-13eb-4b18-ac0b-3394809cccc3" class="">Après le téléchargement du projet, lancez le fichier <code>first_setup.sh</code> qui se trouve à la racine du projet, ce fichier installe <strong>toutes </strong>les dépendances (mêmes optionnelles), construit tous les packages à l’aide de catkin, et source les fichiers nécessaires :</p><pre id="bde40d2c-fd53-4294-85c2-e8a1cd67f39d" class="code"><code>source first_setup.sh</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="aa31121a-857d-4835-9822-3cbb0af21b36"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Note : </strong>Si vous ne souhaitez pas installer les dépendances (à savoir <code>ros-noetic-map-server ros-noetic-amcl ros-noetic-gmapping ros-noetic-hector-mapping</code>) vous pouvez lancer le fichier <code>make_projects.sh</code> et choisir d’installer les dépendances une par une.</div></figure><p id="891e5bd7-0ada-4e30-81a2-d26a087c59ad" class="">A chaque fois que vous ouvrez un nouveau terminal, lancez la commande suivante pour que les packages et les noeuds créés dans le projet soient visibles par ROS :</p><pre id="52607740-65c0-41c8-833d-de491737f20f" class="code"><code>source setup.sh</code></pre><h3 id="9471a182-4554-486b-b9ff-299e33c464a3" class=""><details open=""><summary>Lancement de la simulation + Rviz </summary></details></h3><div class="indented"><p id="229b3c95-1cd2-4433-8226-0bbd6a7bd4b1" class="">Pour lancer la simulation et Rviz avec un des mondes utilisés dans le projet, utilsez la commande : </p><pre id="717f7f85-ecdb-450d-a4ce-15318c50c09d" class="code"><code>roslaunch wheelchair wheelchair.launch world_name:=[NOM_DU_MONDE]</code></pre><p id="1c837cb4-2f2f-448c-8b2c-b198cb3c8291" class="">Les mondes utilisés dans ce projet sont les suivants : </p><ul id="474abd4d-7edd-4faf-a22c-e46a25c35994" class="bulleted-list"><li style="list-style-type:disc"><strong>HEXAGON WORLD (monde par défaut, tapez hexagon) :</strong></li></ul><figure id="874381fe-ee7c-4fd1-90e4-45a1b0ea768d" class="image"><a href="Wiki%20projet%20FAURSA%20874381feee7c4fd190e445a1b0ea768d/world_hexagon.png"><img style="width:480px" src="Wiki%20projet%20FAURSA%20874381feee7c4fd190e445a1b0ea768d/world_hexagon.png"/></a></figure><ul id="b7b6988c-6df5-4b82-ba02-da49c9f8888b" class="bulleted-list"><li style="list-style-type:disc"><strong>SIMPLE HOUSE (tapez simple_house) : </strong></li></ul><figure id="0eabf6d4-8652-4b8d-9e34-1b6dc6005cb4" class="image"><a href="Wiki%20projet%20FAURSA%20874381feee7c4fd190e445a1b0ea768d/world_house.png"><img style="width:480px" src="Wiki%20projet%20FAURSA%20874381feee7c4fd190e445a1b0ea768d/world_house.png"/></a></figure><div><ul id="0a9f53bf-0b3c-449d-b5cb-204ec6c37458" class="bulleted-list"><li style="list-style-type:disc"><strong>AWS ROBOMAKER HOSPITAL WORLD (tapez hospital) :</strong></li></ul></div><figure id="e7d03b6d-5bb5-41a7-9077-d1d2feea509d" class="image"><a href="Wiki%20projet%20FAURSA%20874381feee7c4fd190e445a1b0ea768d/hospital_world.png"><img style="width:1437px" src="Wiki%20projet%20FAURSA%20874381feee7c4fd190e445a1b0ea768d/hospital_world.png"/></a></figure></div><p id="7ac2f7f1-48a4-40b4-b092-b5aaae22f23d" class="">
+</p><p id="23aaf1a5-3269-4853-a8f1-825b96e079fe" class="">Quatre modes de mapping sont implémentés dans ce projet dont trois algorithmes SLAM, pour spécifier lequel de ces modes utiliser, tapez cette commande : </p><pre id="64e675e3-5a78-44ca-969e-44a791d525eb" class="code"><code>roslaunch wheelchair wheelchair.launch world_name:=[NOM_DU_MONDE] mapping_mode:=[MODE_DE_MAPPING]</code></pre><p id="68f4b810-5530-403b-9911-aba7d19ac325" class="">Les modes de mapping sont les suivants : </p><ul id="58c85031-a555-467b-b8df-04d9fa6144da" class="bulleted-list"><li style="list-style-type:disc"><strong>GMapping (tapez gmapping)</strong></li></ul><ul id="3dc9aab1-a24b-49b4-9c5d-4dbe8be33992" class="bulleted-list"><li style="list-style-type:disc"><strong>Hector Mapping (tapez hector)</strong></li></ul><ul id="6410b36c-f2ce-47d9-9495-895431fc237e" class="bulleted-list"><li style="list-style-type:disc"><strong>Large Maps Framework, LaMa (tapez lama)</strong></li></ul><ul id="f8e98eca-bb84-4cf2-ac4d-83e4c99b0b23" class="bulleted-list"><li style="list-style-type:disc"><strong>Utiliser la carte du monde créée au préalable avec gmapping (par défaut, tapez saved)</strong></li></ul><h3 id="29fc0964-3f36-49b9-8ad4-fd1f4ecaffbb" class=""><details open=""><summary>Lancement et utilisation des techniques de navigation : </summary></details></h3><p id="50f80dc4-1fa8-43a3-bb90-a45657fd6566" class="">Une fois votre environnement de simulation créé, pour tester les méthodes de navigation implémentées, tapez cette commande :</p><pre id="6dd4c27d-1ca7-4a28-815e-59ee18083d28" class="code"><code>rosrun motion_planning [nom_du_noeud]</code></pre><p id="c1ff279f-b238-4c65-aa87-6816fbf4fd44" class="">Deux noeuds principaux sont disponibles : </p><ul id="83b85494-4350-4e98-ab02-0caeb0db3c46" class="bulleted-list"><li style="list-style-type:disc"><strong>iss : </strong>utilise l’algorithme ISS (Input Space Sampling) pour la navigation</li></ul><ul id="556a2167-5784-4c2c-a362-0d3b3bc90968" class="bulleted-list"><li style="list-style-type:disc"><strong>optimisation_local : </strong>utilise un algorithme d’optimisation pour la navigation, pour spécifier l’algorithme de navigation, tapez la commande : </li></ul><pre id="796e834d-3980-4465-afe5-3ccca0f389e4" class="code"><code>rosrun motion_planning optimisation_local _algorithm:=[nom_algorithme]</code></pre><p id="58821d19-fdd7-4f64-a88e-e7b81e50f27d" class="">Les algorithmes disponibles sont : </p><ul id="94ed3821-d750-444e-934b-ee9172e768fd" class="bulleted-list"><li style="list-style-type:disc"><strong>Particule Swarm Optimization (PSO, tapez pso)</strong></li></ul><ul id="2446438a-8f54-432e-99db-b64260b9dfc1" class="bulleted-list"><li style="list-style-type:disc"><strong>Whale Optimization Algorithm (WOA, tapez woa)</strong></li></ul><ul id="3cc2045d-4953-404c-afc7-1f9e1d612a42" class="bulleted-list"><li style="list-style-type:disc">(BIENTOT) <strong>Grey Wolf Optimizer (GWO, tapez gwo)</strong></li></ul><p id="3d8aea7e-e2eb-443c-88cc-506a6651af96" class="">
+</p></div></article></body></html>

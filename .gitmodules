@@ -8,3 +8,6 @@
 	path = simulation_ws/src/iris_lama
 	url = https://github.com/iris-ua/iris_lama
 
+[submodule "simulation_ws/src/gazebo_ros_2Dmap_plugin"]
+	path = simulation_ws/src/gazebo_ros_2Dmap_plugin
+	url = https://github.com/marinaKollmitz/gazebo_ros_2Dmap_plugin
