@@ -135,14 +135,18 @@ include_directories(
 #   ${catkin_LIBRARIES}
 # )
 
-add_executable(simple_navigation src/simple_navigation.cpp)
+add_executable(simple_navigation src/archive/simple_navigation.cpp)
 target_link_libraries(simple_navigation ${catkin_LIBRARIES})
 
-add_executable(sub_pub src/sub_pub.cpp)
+add_executable(sub_pub src/archive/sub_pub.cpp)
 target_link_libraries(sub_pub ${catkin_LIBRARIES})
 
-add_executable(trajectory_gen src/trajectory_gen.cpp)
-target_link_libraries(trajectory_gen ${catkin_LIBRARIES})
+add_executable(iss src/iss.cpp)
+target_link_libraries(iss ${catkin_LIBRARIES})
+
+add_executable(optimisation_local src/optimisation_local.cpp)
+target_link_libraries(optimisation_local ${catkin_LIBRARIES})
+
 
 #############
 ## Install ##

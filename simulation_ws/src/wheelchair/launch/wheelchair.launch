@@ -1,22 +1,49 @@
 <?xml version="1.0"?>
 
 <launch>    
+    <!-- World to launch -->
+    <arg name="world_name" default="hexagon"/>
+
+    <!-- Position of robot -->
+    <arg name="pos_x" default="-8" if="$(eval arg('world_name') == 'hospital')"/>
+    <arg name="pos_y" default="-9" if="$(eval arg('world_name') == 'hospital')"/>
+
+    <arg name="pos_x" default="-5" if="$(eval arg('world_name') == 'simple_house')"/>
+    <arg name="pos_y" default="-6" if="$(eval arg('world_name') == 'simple_house')"/>
+
+    <arg name="pos_x" default="0" if="$(eval arg('world_name') == 'simple_maze')"/>
+    <arg name="pos_y" default="0" if="$(eval arg('world_name') == 'simple_maze')"/>
+
+    <arg name="pos_x" default="-2" if="$(eval arg('world_name') == 'hexagon')"/>
+    <arg name="pos_y" default="-2" if="$(eval arg('world_name') == 'hexagon')"/>
+
+    <arg name="pos_x" default="0" if="$(eval arg('world_name') == 'empty')"/>
+    <arg name="pos_y" default="0" if="$(eval arg('world_name') == 'empty')"/>
+
     <!-- Launch gazebo and start simulation -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch" >
         <arg name="paused" value="false"/>
         <arg name="gui" value="true"/>
         <arg name="headless" value="false"/>
         <arg name="debug" value="false"/>
-        <!-- <arg name="world_name" value="$(find aws_robomaker_hospital_world)/worlds/hospital.world" /> -->
-        <arg name="world_name" value="$(find wheelchair)/worlds/simple_maze.world" />
+
+        <!-- Worlds -->
+        <arg name="world_name" value="$(find aws_robomaker_hospital_world)/worlds/hospital.world" if="$(eval arg('world_name') == 'hospital')"/>
+        <arg name="world_name" value="$(find wheelchair)/worlds/simple_maze.world" if="$(eval arg('world_name') == 'simple_maze')"/>
+        <arg name="world_name" value="$(find wheelchair)/worlds/simple_house.world" if="$(eval arg('world_name') == 'simple_house')"/>
+        <arg name="world_name" value="$(find wheelchair)/worlds/empty.world" if="$(eval arg('world_name') == 'empty')"/>
+        <arg name="world_name" value="$(find wheelchair)/worlds/hexagon.world" if="$(eval arg('world_name') == 'hexagon')"/>
     </include>
 
     <!-- Handle model creation and spawning in Gazebo -->
-    <include file="$(find wheelchair)/launch/wheelchair_model.launch"/>
+    <include file="$(find wheelchair)/launch/wheelchair_model.launch">
+        <arg name="pos_x" value="$(arg pos_x)"/>
+        <arg name="pos_y" value="$(arg pos_y)"/>
+    </include>
 
     <!-- Handle mapping modes -->
     <!-- =================================== -->
-    <arg name="mapping_mode" value="saved"/>
+    <arg name="mapping_mode" default="saved"/>
 
     <!-- Case 1 - Gmapping -->
     <include file="$(find wheelchair)/launch/mapping_modes/gmapping.launch" if="$(eval arg('mapping_mode') == 'gmapping')"/>
@@ -28,10 +55,15 @@
     <include file="$(find wheelchair)/launch/mapping_modes/hector_mapping.launch" if="$(eval arg('mapping_mode') == 'hector')"/>
 
     <!-- Case 4 - No mapping (saved map) -->
-    <include file="$(find wheelchair)/launch/mapping_modes/saved_map.launch" if="$(eval arg('mapping_mode') == 'saved')"/>
+    <include file="$(find wheelchair)/launch/mapping_modes/saved_map.launch" if="$(eval arg('mapping_mode') == 'saved')">
+        <arg name="world_name" value="$(arg world_name)"/>
+        <arg name="pos_x" value="$(arg pos_x)"/>
+        <arg name="pos_y" value="$(arg pos_y)"/>
+    </include>
     <!-- =================================== -->
 
-    <!-- Launch Rviz -->
-    <arg name="rvizconfig" default="$(find wheelchair)/config/wheelchair_map.rviz" />
+    <!-- Launch Rviz (Config with map / without) -->
+    <arg name="rvizconfig" default="$(find wheelchair)/config/wheelchair_map.rviz" if="$(eval arg('mapping_mode') != 'none')" />
+    <arg name="rvizconfig" default="$(find wheelchair)/config/wheelchair_nomap.rviz" if="$(eval arg('mapping_mode') == 'none')" />
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 </launch>

@@ -87,7 +87,7 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <model name='simple_maze'>
-      <pose>4.01065 -2.57191 0 0 -0 0</pose>
+      <pose>4 -3 0 0 -0 0</pose>
       <link name='Wall_0'>
         <collision name='Wall_0_Collision'>
           <geometry>
@@ -421,7 +421,7 @@
         </link>
       </model>
       <model name='simple_maze'>
-        <pose>6.09085 -1.09597 0 0 -0 0</pose>
+        <pose>4 -3 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='Wall_0'>
           <pose>-2.10757 -1.06231 0 0 -0 1.5708</pose>

@@ -10,11 +10,13 @@
 		name="robot_state_publisher" respawn="false" output="screen" />
 
 	<!-- Spawn robot in gazebo -->
+	<arg name="pos_x" default="0" />
+	<arg name="pos_y" default="0" />
     <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
           args="-param robot_description
                 -urdf
-				-x 0
-				-y 0
+				-x $(arg pos_x)
+				-y $(arg pos_y)
 				-z 0
                 -model robot_description"
           respawn="false" output="screen" />
